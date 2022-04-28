@@ -46,7 +46,7 @@ export default function Login({ handleLogin, error }: LoginProps) {
                     <h1 className='sans'>
                         Application de suivi de ses dépenses
                     </h1>
-                    <p className="sans">A partir d'une base de donnée <a target='_blank' href="https://notion.so">notion.so</a> cette application te permet de visualiser et suivre tes dépenses.</p>
+                    <p className="sans">A partir d'une base de données <a target='_blank' href="https://notion.so">notion.so</a> cette application te permet de visualiser et suivre tes dépenses.</p>
                     <h2 className="sans">Démarrer</h2>
                     <hr></hr>
                     <h4 className="sans">Etape 1</h4>
