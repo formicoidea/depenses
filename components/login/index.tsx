@@ -86,7 +86,7 @@ export default function Login({ handleLogin, error }: LoginProps) {
                     <p className="sans">
                         L'intégration créées, tu vas maintenant la relier à ta base de données. Rends toi sur la page de ta base de données.
                         Une fois sur la page, en haut à droite cliques sur "Share", puis "Invite" et enfin invite ton intégration à rejoindre le partage des données de cette base.
-                        Concerve l'ID de la base.
+                        Concerves l'ID de la base.
                     </p>
                     <h4 className="sans">Etape 8</h4>
                     <p className="sans">
@@ -152,7 +152,7 @@ export default function Login({ handleLogin, error }: LoginProps) {
                                     className="sans"
 
                                     onClick={() => handleLogin(id, secret)}
-                                >Connecter sa base</button>
+                                >Connecter ma base</button>
 
                             </div>
                         </div>
