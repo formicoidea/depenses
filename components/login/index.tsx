@@ -51,7 +51,7 @@ export default function Login({ handleLogin, error }: LoginProps) {
                     <hr></hr>
                     <h4 className="sans">Etape 1</h4>
                     <p className="sans">
-                        Si tu n'as pas de compte Notion, créées en toi un : <a className="sans link" target='_blank' href="https://www.notion.so/signup">Créer un compter notion</a>
+                        Si tu n'as pas de compte Notion, crée en toi un : <a className="sans link" target='_blank' href="https://www.notion.so/signup">Créer un compte notion</a>
                     </p>
                     <h4 className="sans">Etape 2</h4>
                     <p className="sans">
@@ -59,11 +59,11 @@ export default function Login({ handleLogin, error }: LoginProps) {
                     </p>
                     <h4 className="sans">Etape 3</h4>
                     <p className="sans">
-                        Dans cette table il faut que tu renomes la propriété principale (souvent "name") par <b>"Nom"</b>.
+                        Dans cette table il faut que tu renomes la propriété principale (souvent "Name") par <b>"Nom"</b>.
                     </p>
                     <h4 className="sans">Etape 4</h4>
                     <p className="sans">
-                        Toujours dans cette table tu vas ajouter 3 propriétés dont il faut que tu respectes le format absolument.
+                        Toujours dans cette table tu vas ajouter 3 propriétés dont il faut absolument que tu respectes le format.
                     </p>
                     <p className="sans">
                         Les proporiétés à ajouter sont :
@@ -85,7 +85,7 @@ export default function Login({ handleLogin, error }: LoginProps) {
                     <h4 className="sans">Etape 7</h4>
                     <p className="sans">
                         L'intégration créées, tu vas maintenant la relier à ta base de données. Rends toi sur la page de ta base de données.
-                        Une fois sur la page, en haut à droite cliques sur "Share", puis "Invite" et enfin invite ton intégration à rejoindre le partage des données de cette base de données.
+                        Une fois sur la page, en haut à droite cliques sur "Share", puis "Invite" et enfin invite ton intégration à rejoindre le partage des données de cette base.
                         Concerve l'ID de la base.
                     </p>
                     <h4 className="sans">Etape 8</h4>
@@ -94,7 +94,7 @@ export default function Login({ handleLogin, error }: LoginProps) {
                     </p>
                     <h4 className="sans">Etape 9</h4>
                     <p className="sans">
-                        Depuis Notion, ajoute tes dépenses. Recharge cette page pour arfficher les changements.
+                        Depuis Notion, ajoutes tes dépenses. Recharges cette page pour afficher les changements.
                     </p>
                     <h2 className="sans">
                         Connexion
