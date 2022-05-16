@@ -75,14 +75,14 @@ export default function Dashboard({ token }: DashboardProps) {
     const Depenses = useSWR(["api/retrieveDepenses", _options], fetcher)
 
     if (error || Depenses.error) {
-        console.log(error);
-        console.log(Depenses.error)
+        // console.log(error);
+        // console.log(Depenses.error)
         return <div className="sans" >Failed to load</div>
     }
     if (!data || !Depenses.data) return <Layout title="Loading..."><div className="sans indented">Loading...</div></Layout>
 
-    console.log("Data", data);
-    console.log("Depenses", Depenses.data);
+    // console.log("Data", data);
+    // console.log("Depenses", Depenses.data);
 
     const lowestYear = parseISO(data[0].properties.Date.date.start).getFullYear()
     const highestYear = data[data.length - 1].properties.Date.date ? parseISO(data[data.length - 1].properties.Date.date.start).getFullYear() : 2022
@@ -153,9 +153,6 @@ export default function Dashboard({ token }: DashboardProps) {
             initialYearByMonthSumTags.splice(index, 1, concernChart)
         }
     }
-
-    console.log(initialYearByMonthSum);
-    console.log(initialYearByMonthSumTags);
 
     const series = [
         {
