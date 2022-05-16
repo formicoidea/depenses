@@ -85,7 +85,7 @@ export default function Dashboard({ token }: DashboardProps) {
     console.log("Depenses", Depenses.data);
 
     const lowestYear = parseISO(data[0].properties.Date.date.start).getFullYear()
-    const highestYear = parseISO(data[data.length - 1].properties.Date.date.start).getFullYear()
+    const highestYear = data[data.length - 1].properties.Date.date ? parseISO(data[data.length - 1].properties.Date.date.start).getFullYear() : 2022
     const numberFormat = Depenses.data.properties.Montant.number.format
     const listTags = Depenses.data.properties.Tags.select.options
 
@@ -111,45 +111,47 @@ export default function Dashboard({ token }: DashboardProps) {
 
         const e = data[i];
 
-        const dateISO = e.properties.Date.date.start
+        const dateISO = e.properties.Date.date ? e.properties.Date.date.start : ""
 
-        const cost = e.properties.Montant.number
+        if (dateISO !== "") {
+            const cost = e.properties.Montant.number
 
-        const date = parseISO(dateISO)
+            const date = parseISO(dateISO)
 
-        const monthIndex = getMonth(date)
+            const monthIndex = getMonth(date)
 
-        const year = date.getFullYear()
+            const year = date.getFullYear()
 
-        //------------------
-        //cumulated by month
+            //------------------
+            //cumulated by month
 
-        const sum = initialYearByMonthSum[monthIndex] + cost
+            const sum = initialYearByMonthSum[monthIndex] + cost
 
-        initialYearByMonthSum.splice(monthIndex, 1, sum)
+            initialYearByMonthSum.splice(monthIndex, 1, sum)
 
-        //----------------
-        //by tags by month
+            //----------------
+            //by tags by month
 
-        const tag = e.properties.Tags.select.name
+            const tag = e.properties.Tags.select.name
 
-        const index = listTags.findIndex((p => p.name === tag))
+            const index = listTags.findIndex((p => p.name === tag))
 
-        let concernChart = initialYearByMonthSumTags[index]
+            let concernChart = initialYearByMonthSumTags[index]
 
-        let [concernSerie] = concernChart.series.filter(p => p.name === year)
+            let [concernSerie] = concernChart.series.filter(p => p.name === year)
 
-        let concernData = concernSerie.data
+            let concernData = concernSerie.data
 
-        const costTags = concernData[monthIndex] + cost
+            const costTags = concernData[monthIndex] + cost
 
-        concernData.splice(monthIndex, 1, costTags)
+            concernData.splice(monthIndex, 1, costTags)
 
-        concernSerie = { ...concernSerie, data: concernData }
+            concernSerie = { ...concernSerie, data: concernData }
 
-        concernChart.series.splice(concernChart.series.findIndex((p => p.name === year)), 1, concernSerie)
+            concernChart.series.splice(concernChart.series.findIndex((p => p.name === year)), 1, concernSerie)
 
-        initialYearByMonthSumTags.splice(index, 1, concernChart)
+            initialYearByMonthSumTags.splice(index, 1, concernChart)
+        }
     }
 
     console.log(initialYearByMonthSum);
